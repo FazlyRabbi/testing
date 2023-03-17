@@ -7,26 +7,7 @@ import useSweetAlert from "../lib/sweetalert2";
 import PhoneInput from "react-phone-number-input";
 import "react-phone-number-input/style.css";
 function Vulunteer_Contact() {
-
-  const { volunteer, setVolunteer, postVolunteers, volunteerInitial } =
-    useContext(VolunteerContext);
-
-
-  const generateRandomNumber = () => {
-    const min = 10000000;
-    const max = 99999999;
-    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    const actualNum = `khusvulun${randomNumber}`;
-    setVolunteer({ ...volunteer, RegistrationId: actualNum });
-  };
-
-  useEffect(() => {
-    generateRandomNumber();
-  }, []);
-
-
-
-  //showing alert
+  // showing alert
   const { showAlert } = useSweetAlert();
 
   const showAlerts = () => {
@@ -41,7 +22,8 @@ function Vulunteer_Contact() {
     });
   };
 
-  
+  const { volunteer, setVolunteer, postVolunteers, volunteerInitial } =
+    useContext(VolunteerContext);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -154,7 +136,7 @@ function Vulunteer_Contact() {
               </label>
               <PhoneInput
                 international
-                className=" py-3 rounded-sm  w-[100%] px-2  bg-[#ededed]"
+                className=" py-3 rounded-sm  w-[100%] px-2  border-softGray border-[1px]"
                 defaultCountry="RU"
                 onChange={() => ""}
                 // onChange={(e) =>

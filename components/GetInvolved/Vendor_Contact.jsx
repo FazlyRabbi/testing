@@ -8,30 +8,6 @@ import useSweetAlert from "../lib/sweetalert2";
 import PhoneInput from "react-phone-number-input";
 
 function vendor_Contact() {
-
-
-  const { vendor, setVendor, vendorInitial, postVendor } =
-  useContext(vendorContext);
-
-  
-  const generateRandomNumber = () => {
-    const min = 10000000;
-    const max = 99999999;
-    const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-    const actualNum = `khusven${randomNumber}`;
-    setVendor({ ...vendor, RegistrationId: actualNum });
-  };
-
-  useEffect(() => {
-    generateRandomNumber();
-  }, []);
-
-
-
-
-
-
-
   // showing alert
   const { showAlert } = useSweetAlert();
   const showAlerts = (email, ammount) => {
@@ -65,6 +41,8 @@ function vendor_Contact() {
   const [cardError, setCardError] = useState(null);
   const [button, setButton] = useState(true);
 
+  const { vendor, setVendor, vendorInitial, postVendor } =
+    useContext(vendorContext);
 
   const stripe = useStripe();
 
@@ -261,16 +239,16 @@ function vendor_Contact() {
               >
                 Phone number
               </label>
-              {/* <PhoneInput
+              <PhoneInput
                 international
-                className=" py-3 rounded-sm  w-[100%] px-2  bg-[#ededed]"
+                className=" py-3  w-[100%] px-2 border rounded-md border-softGray"
                 defaultCountry="RU"
                 onChange={() => ""}
                 // onChange={(e) =>
                 //   setVolunteer({ ...volunteer, Phone: e.target.value })
                 // }
-              /> */}
-              <input
+              />
+              {/* <input
                 required
                 type="tel"
                 id="phoneNumber"
@@ -279,7 +257,7 @@ function vendor_Contact() {
                 onChange={(e) =>
                   setVendor({ ...vendor, Phone: e.target.value })
                 }
-              />
+              /> */}
               <p className=" invisible text-sm mt-[1px] warningMessage text-red">
                 This field is required.
               </p>

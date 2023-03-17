@@ -20,7 +20,6 @@ export const VolunteerProvider = ({ children }) => {
     InterestPlace: "",
     EmergencyEmail: "",
     EmergencyPhone: "",
-    RegistrationId: null,
   };
 
   const [volunteer, setVolunteer] = useState(volunteerInitial);
